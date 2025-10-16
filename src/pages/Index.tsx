@@ -549,7 +549,117 @@ export default function Index() {
         </div>
       </div>
 
-      <footer className="py-8 text-center text-muted-foreground border-t border-primary/10 mt-16">
+      <div className="bg-gradient-to-b from-background to-primary/5 py-16 mt-16">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <Icon name="Map" size={40} className="text-primary" />
+            </div>
+            <h2 className="font-montserrat font-bold text-4xl text-foreground mb-2">
+              Глобальное Присутствие
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Распределение военной мощи Российского Союза по регионам
+            </p>
+          </div>
+
+          <Card className="bg-white/90 backdrop-blur-sm border-primary/20 p-8 md:p-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-lg border-2 border-blue-200">
+                <Icon name="MapPin" size={32} className="text-blue-600 mx-auto mb-3" />
+                <div className="font-montserrat font-bold text-2xl text-blue-900 mb-1">Европа</div>
+                <p className="text-blue-700 font-semibold text-lg">~2.27 млн</p>
+                <p className="text-blue-600 text-sm mt-2">3 страны</p>
+              </div>
+
+              <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100/50 rounded-lg border-2 border-green-200">
+                <Icon name="MapPin" size={32} className="text-green-600 mx-auto mb-3" />
+                <div className="font-montserrat font-bold text-2xl text-green-900 mb-1">Азия</div>
+                <p className="text-green-700 font-semibold text-lg">~1.47 млн</p>
+                <p className="text-green-600 text-sm mt-2">7 стран</p>
+              </div>
+
+              <div className="text-center p-6 bg-gradient-to-br from-red-50 to-red-100/50 rounded-lg border-2 border-red-200">
+                <Icon name="MapPin" size={32} className="text-red-600 mx-auto mb-3" />
+                <div className="font-montserrat font-bold text-2xl text-red-900 mb-1">Америка</div>
+                <p className="text-red-700 font-semibold text-lg">~610 тыс</p>
+                <p className="text-red-600 text-sm mt-2">2 страны</p>
+              </div>
+
+              <div className="text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-lg border-2 border-orange-200">
+                <Icon name="MapPin" size={32} className="text-orange-600 mx-auto mb-3" />
+                <div className="font-montserrat font-bold text-2xl text-orange-900 mb-1">Африка</div>
+                <p className="text-orange-700 font-semibold text-lg">~212 тыс</p>
+                <p className="text-orange-600 text-sm mt-2">1 страна</p>
+              </div>
+            </div>
+
+            <div className="relative bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-8 border-2 border-primary/20">
+              <div className="absolute top-4 right-4 flex gap-2">
+                <Icon name="Globe" size={24} className="text-primary animate-pulse" />
+              </div>
+              
+              <div className="space-y-4">
+                <div className="flex items-center justify-between p-4 bg-white/80 rounded-lg border border-blue-200 hover:shadow-md transition-all">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                    <span className="font-montserrat font-semibold text-foreground">Европа</span>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-bold text-blue-700">~2.27 млн</div>
+                    <div className="text-xs text-muted-foreground">50.4% от общей мощи</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-4 bg-white/80 rounded-lg border border-green-200 hover:shadow-md transition-all">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span className="font-montserrat font-semibold text-foreground">Азия</span>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-bold text-green-700">~1.47 млн</div>
+                    <div className="text-xs text-muted-foreground">32.7% от общей мощи</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-4 bg-white/80 rounded-lg border border-red-200 hover:shadow-md transition-all">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <span className="font-montserrat font-semibold text-foreground">Америка</span>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-bold text-red-700">~610 тыс</div>
+                    <div className="text-xs text-muted-foreground">13.6% от общей мощи</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-4 bg-white/80 rounded-lg border border-orange-200 hover:shadow-md transition-all">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                    <span className="font-montserrat font-semibold text-foreground">Африка</span>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-bold text-orange-700">~212 тыс</div>
+                    <div className="text-xs text-muted-foreground">4.7% от общей мощи</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
+                <div className="flex items-center gap-3">
+                  <Icon name="Info" size={20} className="text-primary" />
+                  <div>
+                    <p className="font-montserrat font-bold text-foreground">Общая численность: 4.5+ млн</p>
+                    <p className="text-sm text-muted-foreground">Данные актуальны на 2159 год • 13 активных членов альянса</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </div>
+
+      <footer className="py-8 text-center text-muted-foreground border-t border-primary/10 mt-0">
         <p className="font-montserrat">© 2160 Альянс Российский Союз</p>
       </footer>
     </div>
