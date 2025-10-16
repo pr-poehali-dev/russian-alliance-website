@@ -126,13 +126,34 @@ export default function Index() {
           <h1 className="font-montserrat font-extrabold text-6xl md:text-7xl mb-4 text-foreground tracking-tight">
             Альянс
           </h1>
-          <h2 className="font-montserrat font-bold text-4xl md:text-5xl mb-6 bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
+          <h2 className="font-montserrat font-bold text-4xl md:text-5xl mb-4 bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
             Российский Союз
           </h2>
+          <p className="text-primary font-montserrat font-semibold text-xl md:text-2xl mb-2 tracking-wide">
+            ПРИВИЛЕГИИ ВСЕХ СТРАН ОБЪЕДИНЯЮТСЯ
+          </p>
           <p className="text-muted-foreground text-lg md:text-xl font-medium">
             Информационный портал • 2160 год
           </p>
         </header>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 animate-fade-in">
+          <Card className="bg-white/90 backdrop-blur-sm border-primary/20 p-6 text-center hover:shadow-xl transition-all duration-300">
+            <Icon name="Users" size={40} className="text-primary mx-auto mb-3" />
+            <div className="font-montserrat font-bold text-3xl text-foreground mb-1">340+ млн</div>
+            <p className="text-muted-foreground font-medium">Население союза</p>
+          </Card>
+          <Card className="bg-white/90 backdrop-blur-sm border-primary/20 p-6 text-center hover:shadow-xl transition-all duration-300">
+            <Icon name="TrendingUp" size={40} className="text-primary mx-auto mb-3" />
+            <div className="font-montserrat font-bold text-3xl text-foreground mb-1">$8.7+ трлн</div>
+            <p className="text-muted-foreground font-medium">Совокупный ВВП</p>
+          </Card>
+          <Card className="bg-white/90 backdrop-blur-sm border-primary/20 p-6 text-center hover:shadow-xl transition-all duration-300">
+            <Icon name="Shield" size={40} className="text-primary mx-auto mb-3" />
+            <div className="font-montserrat font-bold text-3xl text-foreground mb-1">Единство</div>
+            <p className="text-muted-foreground font-medium">Коллективная защита</p>
+          </Card>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {countries.map((country, index) => (
@@ -166,13 +187,16 @@ export default function Index() {
           </div>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p className="text-lg">
-              Альянс Российский Союз — крупнейшее межгосударственное объединение, основанное на принципах взаимной поддержки, экономической интеграции и культурного сотрудничества.
+              Альянс Российский Союз — единое государственное образование, объединяющее двенадцать территорий в могущественную федерацию. Мы — не просто альянс, мы — одна страна с общей судьбой и едиными целями.
             </p>
             <p className="text-lg">
-              В состав альянса входят двенадцать суверенных государств, объединённых общими стратегическими целями и стремлением к совместному процветанию. Союз охватывает территории от Восточной Европы до Центральной Азии и Латинской Америки.
+              С населением более <span className="font-bold text-foreground">340 миллионов человек</span> и совокупным ВВП свыше <span className="font-bold text-foreground">$8.7 триллиона</span>, Российский Союз является одной из ведущих мировых держав. Наша сила — в единстве регионов, охватывающих территории от Восточной Европы до Центральной Азии и Латинской Америки.
             </p>
             <p className="text-lg">
-              Основные направления сотрудничества включают развитие единого экономического пространства, научно-технический обмен, энергетическую безопасность и совместные инфраструктурные проекты.
+              Союз построен на принципах коллективной безопасности: угроза одной территории — это угроза всему Союзу. Мы готовы противостоять любым внешним вызовам, защищая суверенитет и благополучие каждого гражданина. Вместе мы строим безопасный и процветающий мир.
+            </p>
+            <p className="text-lg">
+              Единое экономическое пространство, общая оборонная система, интегрированная инфраструктура и свободное движение граждан — вот фундамент нашего общего будущего.
             </p>
           </div>
         </Card>
