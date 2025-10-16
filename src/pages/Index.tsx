@@ -232,54 +232,221 @@ export default function Index() {
               <p className="text-muted-foreground text-sm">Данные от 2159 года</p>
             </SheetHeader>
             <ScrollArea className="h-[calc(100vh-120px)] mt-6 pr-4">
-              <div className="space-y-3">
-                {[
-                  { name: 'Россия', force: '1.35 млн', color: 'bg-country-russia', percent: 100 },
-                  { name: 'Украина', force: '720 тыс', color: 'bg-country-ukraine', percent: 53 },
-                  { name: 'Казахстан', force: '650 тыс', color: 'bg-country-kazakhstan', percent: 48 },
-                  { name: 'Венесуэла', force: '~400 тыс', color: 'bg-country-venezuela', percent: 30 },
-                  { name: 'Узбекистан', force: '325 тыс', color: 'bg-country-uzbekistan', percent: 24 },
-                  { name: 'Нигер', force: '~212 тыс', color: 'bg-orange-600', percent: 16 },
-                  { name: 'Куба', force: '~210 тыс', color: 'bg-country-cuba', percent: 16 },
-                  { name: 'Беларусь', force: '201 тыс', color: 'bg-country-belarus', percent: 15 },
-                  { name: 'Таджикистан', force: '140 тыс', color: 'bg-country-tajikistan', percent: 10 },
-                  { name: 'Афганистан', force: '137 тыс', color: 'bg-country-afghanistan', percent: 10 },
-                  { name: 'Кыргызстан', force: '100 тыс', color: 'bg-country-kyrgyzstan', percent: 7 },
-                  { name: 'Сирия', force: '85 тыс', color: 'bg-country-syria', percent: 6 },
-                  { name: 'Туркменистан', force: '28 тыс', color: 'bg-country-turkmenistan', percent: 2 }
-                ].map((entry, index) => (
-                  <Card 
-                    key={index}
-                    className="bg-white border-primary/10 p-4 hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className={`w-3 h-3 rounded-full ${entry.color}`} />
-                          <h3 className="font-montserrat font-semibold text-foreground">
-                            {entry.name}
-                          </h3>
+              <Tabs defaultValue="all" className="w-full">
+                <TabsList className="grid w-full grid-cols-5 mb-6">
+                  <TabsTrigger value="all" className="text-xs">Все</TabsTrigger>
+                  <TabsTrigger value="europe" className="text-xs">Европа</TabsTrigger>
+                  <TabsTrigger value="asia" className="text-xs">Азия</TabsTrigger>
+                  <TabsTrigger value="america" className="text-xs">Америка</TabsTrigger>
+                  <TabsTrigger value="africa" className="text-xs">Африка</TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="all" className="space-y-3">
+                  {[
+                    { name: 'Россия', force: '1.35 млн', color: 'bg-country-russia', percent: 100, region: 'europe' },
+                    { name: 'Украина', force: '720 тыс', color: 'bg-country-ukraine', percent: 53, region: 'europe' },
+                    { name: 'Казахстан', force: '650 тыс', color: 'bg-country-kazakhstan', percent: 48, region: 'asia' },
+                    { name: 'Венесуэла', force: '~400 тыс', color: 'bg-country-venezuela', percent: 30, region: 'america' },
+                    { name: 'Узбекистан', force: '325 тыс', color: 'bg-country-uzbekistan', percent: 24, region: 'asia' },
+                    { name: 'Нигер', force: '~212 тыс', color: 'bg-orange-600', percent: 16, region: 'africa' },
+                    { name: 'Куба', force: '~210 тыс', color: 'bg-country-cuba', percent: 16, region: 'america' },
+                    { name: 'Беларусь', force: '201 тыс', color: 'bg-country-belarus', percent: 15, region: 'europe' },
+                    { name: 'Таджикистан', force: '140 тыс', color: 'bg-country-tajikistan', percent: 10, region: 'asia' },
+                    { name: 'Афганистан', force: '137 тыс', color: 'bg-country-afghanistan', percent: 10, region: 'asia' },
+                    { name: 'Кыргызстан', force: '100 тыс', color: 'bg-country-kyrgyzstan', percent: 7, region: 'asia' },
+                    { name: 'Сирия', force: '85 тыс', color: 'bg-country-syria', percent: 6, region: 'asia' },
+                    { name: 'Туркменистан', force: '28 тыс', color: 'bg-country-turkmenistan', percent: 2, region: 'asia' }
+                  ].map((entry, index) => (
+                    <Card 
+                      key={index}
+                      className="bg-white border-primary/10 p-4 hover:shadow-lg transition-all duration-300"
+                    >
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className={`w-3 h-3 rounded-full ${entry.color}`} />
+                            <h3 className="font-montserrat font-semibold text-foreground">
+                              {entry.name}
+                            </h3>
+                          </div>
+                          <div className="font-montserrat font-bold text-primary">{entry.force}</div>
                         </div>
-                        <div className="font-montserrat font-bold text-primary">{entry.force}</div>
+                        <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+                          <div 
+                            className={`h-full ${entry.color} transition-all duration-500`}
+                            style={{ width: `${entry.percent}%` }}
+                          />
+                        </div>
                       </div>
-                      <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
-                        <div 
-                          className={`h-full ${entry.color} transition-all duration-500`}
-                          style={{ width: `${entry.percent}%` }}
-                        />
-                      </div>
+                    </Card>
+                  ))}
+                  <Card className="bg-primary/10 p-4 border-primary/20 mt-6">
+                    <div className="flex items-center gap-2">
+                      <Icon name="Info" size={20} className="text-primary" />
+                      <p className="text-sm text-muted-foreground">
+                        Общая численность активного военного состава альянса составляет более 4.5 млн человек
+                      </p>
                     </div>
                   </Card>
-                ))}
-              </div>
-              <Card className="bg-primary/10 p-4 border-primary/20 mt-6">
-                <div className="flex items-center gap-2">
-                  <Icon name="Info" size={20} className="text-primary" />
-                  <p className="text-sm text-muted-foreground">
-                    Общая численность активного военного состава альянса составляет более 4.5 млн человек
-                  </p>
-                </div>
-              </Card>
+                </TabsContent>
+
+                <TabsContent value="europe" className="space-y-3">
+                  {[
+                    { name: 'Россия', force: '1.35 млн', color: 'bg-country-russia', percent: 100 },
+                    { name: 'Украина', force: '720 тыс', color: 'bg-country-ukraine', percent: 53 },
+                    { name: 'Беларусь', force: '201 тыс', color: 'bg-country-belarus', percent: 15 }
+                  ].map((entry, index) => (
+                    <Card 
+                      key={index}
+                      className="bg-white border-primary/10 p-4 hover:shadow-lg transition-all duration-300"
+                    >
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className={`w-3 h-3 rounded-full ${entry.color}`} />
+                            <h3 className="font-montserrat font-semibold text-foreground">
+                              {entry.name}
+                            </h3>
+                          </div>
+                          <div className="font-montserrat font-bold text-primary">{entry.force}</div>
+                        </div>
+                        <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+                          <div 
+                            className={`h-full ${entry.color} transition-all duration-500`}
+                            style={{ width: `${entry.percent}%` }}
+                          />
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                  <Card className="bg-primary/10 p-4 border-primary/20 mt-6">
+                    <div className="flex items-center gap-2">
+                      <Icon name="Info" size={20} className="text-primary" />
+                      <p className="text-sm text-muted-foreground">
+                        Европа: ~2.27 млн военнослужащих
+                      </p>
+                    </div>
+                  </Card>
+                </TabsContent>
+
+                <TabsContent value="asia" className="space-y-3">
+                  {[
+                    { name: 'Казахстан', force: '650 тыс', color: 'bg-country-kazakhstan', percent: 100 },
+                    { name: 'Узбекистан', force: '325 тыс', color: 'bg-country-uzbekistan', percent: 50 },
+                    { name: 'Таджикистан', force: '140 тыс', color: 'bg-country-tajikistan', percent: 22 },
+                    { name: 'Афганистан', force: '137 тыс', color: 'bg-country-afghanistan', percent: 21 },
+                    { name: 'Кыргызстан', force: '100 тыс', color: 'bg-country-kyrgyzstan', percent: 15 },
+                    { name: 'Сирия', force: '85 тыс', color: 'bg-country-syria', percent: 13 },
+                    { name: 'Туркменистан', force: '28 тыс', color: 'bg-country-turkmenistan', percent: 4 }
+                  ].map((entry, index) => (
+                    <Card 
+                      key={index}
+                      className="bg-white border-primary/10 p-4 hover:shadow-lg transition-all duration-300"
+                    >
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className={`w-3 h-3 rounded-full ${entry.color}`} />
+                            <h3 className="font-montserrat font-semibold text-foreground">
+                              {entry.name}
+                            </h3>
+                          </div>
+                          <div className="font-montserrat font-bold text-primary">{entry.force}</div>
+                        </div>
+                        <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+                          <div 
+                            className={`h-full ${entry.color} transition-all duration-500`}
+                            style={{ width: `${entry.percent}%` }}
+                          />
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                  <Card className="bg-primary/10 p-4 border-primary/20 mt-6">
+                    <div className="flex items-center gap-2">
+                      <Icon name="Info" size={20} className="text-primary" />
+                      <p className="text-sm text-muted-foreground">
+                        Азия: ~1.47 млн военнослужащих
+                      </p>
+                    </div>
+                  </Card>
+                </TabsContent>
+
+                <TabsContent value="america" className="space-y-3">
+                  {[
+                    { name: 'Венесуэла', force: '~400 тыс', color: 'bg-country-venezuela', percent: 100 },
+                    { name: 'Куба', force: '~210 тыс', color: 'bg-country-cuba', percent: 53 }
+                  ].map((entry, index) => (
+                    <Card 
+                      key={index}
+                      className="bg-white border-primary/10 p-4 hover:shadow-lg transition-all duration-300"
+                    >
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className={`w-3 h-3 rounded-full ${entry.color}`} />
+                            <h3 className="font-montserrat font-semibold text-foreground">
+                              {entry.name}
+                            </h3>
+                          </div>
+                          <div className="font-montserrat font-bold text-primary">{entry.force}</div>
+                        </div>
+                        <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+                          <div 
+                            className={`h-full ${entry.color} transition-all duration-500`}
+                            style={{ width: `${entry.percent}%` }}
+                          />
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                  <Card className="bg-primary/10 p-4 border-primary/20 mt-6">
+                    <div className="flex items-center gap-2">
+                      <Icon name="Info" size={20} className="text-primary" />
+                      <p className="text-sm text-muted-foreground">
+                        Америка: ~610 тыс военнослужащих
+                      </p>
+                    </div>
+                  </Card>
+                </TabsContent>
+
+                <TabsContent value="africa" className="space-y-3">
+                  {[
+                    { name: 'Нигер', force: '~212 тыс', color: 'bg-orange-600', percent: 100 }
+                  ].map((entry, index) => (
+                    <Card 
+                      key={index}
+                      className="bg-white border-primary/10 p-4 hover:shadow-lg transition-all duration-300"
+                    >
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div className={`w-3 h-3 rounded-full ${entry.color}`} />
+                            <h3 className="font-montserrat font-semibold text-foreground">
+                              {entry.name}
+                            </h3>
+                          </div>
+                          <div className="font-montserrat font-bold text-primary">{entry.force}</div>
+                        </div>
+                        <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
+                          <div 
+                            className={`h-full ${entry.color} transition-all duration-500`}
+                            style={{ width: `${entry.percent}%` }}
+                          />
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                  <Card className="bg-primary/10 p-4 border-primary/20 mt-6">
+                    <div className="flex items-center gap-2">
+                      <Icon name="Info" size={20} className="text-primary" />
+                      <p className="text-sm text-muted-foreground">
+                        Африка: ~212 тыс военнослужащих
+                      </p>
+                    </div>
+                  </Card>
+                </TabsContent>
+              </Tabs>
             </ScrollArea>
           </SheetContent>
         </Sheet>
