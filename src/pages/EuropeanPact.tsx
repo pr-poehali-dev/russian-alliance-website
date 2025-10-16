@@ -46,10 +46,9 @@ export default function EuropeanPact() {
             <ScrollArea className="h-[calc(100vh-120px)] mt-6 pr-4">
               <div className="space-y-3">
                 {[
-                  { name: 'Российский Союз', period: '2155-2188', color: 'bg-country-russia' },
-                  { name: 'Румынское Королевство', period: '2157-2180', color: 'bg-red-700' },
-                  { name: 'Сербия', period: '2163-2179', color: 'bg-blue-800' },
-                  { name: 'Болгарское Царство', period: '2160-2170', color: 'bg-green-700' }
+                  { name: 'Российский Союз', year: 2155, color: 'bg-country-russia' },
+                  { name: 'Румынское Королевство', year: 2157, color: 'bg-red-700' },
+                  { name: 'Болгарское Царство', year: 2160, color: 'bg-green-700' }
                 ].map((entry, index) => (
                   <Card 
                     key={index}
@@ -62,7 +61,7 @@ export default function EuropeanPact() {
                           {entry.name}
                         </h3>
                       </div>
-                      <div className="text-primary font-montserrat font-medium text-sm">{entry.period}</div>
+                      <div className="text-primary font-montserrat font-medium text-sm">с {entry.year}</div>
                     </div>
                   </Card>
                 ))}
@@ -89,26 +88,9 @@ export default function EuropeanPact() {
             </SheetHeader>
             <ScrollArea className="h-[calc(100vh-120px)] mt-6 pr-4">
               <div className="space-y-3">
-                {[
-                  { name: 'Венгерствия', period: '2162-2171', color: 'bg-red-600' },
-                  { name: 'Германия', period: '2161-2168', color: 'bg-yellow-600' },
-                  { name: 'Эстония', period: '2156-2160', color: 'bg-blue-600' }
-                ].map((entry, index) => (
-                  <Card 
-                    key={index}
-                    className="bg-white border-primary/10 p-4 hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-3 h-3 rounded-full ${entry.color}`} />
-                        <h3 className="font-montserrat font-semibold text-foreground">
-                          {entry.name}
-                        </h3>
-                      </div>
-                      <div className="text-muted-foreground font-montserrat font-medium text-sm">{entry.period}</div>
-                    </div>
-                  </Card>
-                ))}
+                <p className="text-muted-foreground text-sm p-4">
+                  В настоящий момент (2160) государства-помощники отсутствуют
+                </p>
               </div>
             </ScrollArea>
           </SheetContent>
@@ -137,14 +119,14 @@ export default function EuropeanPact() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           <Card className="bg-white/90 backdrop-blur-sm border-primary/20 p-8 text-center hover:shadow-xl transition-all duration-300 animate-fade-in">
             <Icon name="Users" size={40} className="text-primary mx-auto mb-3" />
-            <div className="font-montserrat font-bold text-3xl text-foreground mb-2">4 члена</div>
-            <p className="text-muted-foreground font-medium">Полноправные участники</p>
+            <div className="font-montserrat font-bold text-3xl text-foreground mb-2">3 члена</div>
+            <p className="text-muted-foreground font-medium">Полноправные участники (2160)</p>
           </Card>
 
           <Card className="bg-white/90 backdrop-blur-sm border-primary/20 p-8 text-center hover:shadow-xl transition-all duration-300 animate-fade-in">
-            <Icon name="HandHelping" size={40} className="text-primary mx-auto mb-3" />
-            <div className="font-montserrat font-bold text-3xl text-foreground mb-2">3 помощника</div>
-            <p className="text-muted-foreground font-medium">Государства-партнёры</p>
+            <Icon name="Calendar" size={40} className="text-primary mx-auto mb-3" />
+            <div className="font-montserrat font-bold text-3xl text-foreground mb-2">5 лет</div>
+            <p className="text-muted-foreground font-medium">Действует с 2155 года</p>
           </Card>
         </div>
 
@@ -158,10 +140,9 @@ export default function EuropeanPact() {
             </div>
             <div className="space-y-4">
               {[
-                { name: 'Российский Союз', period: '2155-2188', color: 'bg-country-russia', years: 33 },
-                { name: 'Румынское Королевство', period: '2157-2180', color: 'bg-red-700', years: 23 },
-                { name: 'Сербия', period: '2163-2179', color: 'bg-blue-800', years: 16 },
-                { name: 'Болгарское Царство', period: '2160-2170', color: 'bg-green-700', years: 10 }
+                { name: 'Российский Союз', year: 2155, color: 'bg-country-russia', years: 5 },
+                { name: 'Румынское Королевство', year: 2157, color: 'bg-red-700', years: 3 },
+                { name: 'Болгарское Царство', year: 2160, color: 'bg-green-700', years: 0 }
               ].map((entry, index) => (
                 <div 
                   key={index}
@@ -177,7 +158,7 @@ export default function EuropeanPact() {
                     </div>
                   </div>
                   <div className="text-primary font-montserrat font-bold text-sm">
-                    {entry.years} лет
+                    {entry.years === 0 ? 'Новый участник' : `${entry.years} ${entry.years === 1 ? 'год' : entry.years < 5 ? 'года' : 'лет'}`}
                   </div>
                 </div>
               ))}
@@ -191,30 +172,10 @@ export default function EuropeanPact() {
                 Помощники Пакта
               </h2>
             </div>
-            <div className="space-y-4">
-              {[
-                { name: 'Венгерствия', period: '2162-2171', color: 'bg-red-600', years: 9 },
-                { name: 'Германия', period: '2161-2168', color: 'bg-yellow-600', years: 7 },
-                { name: 'Эстония', period: '2156-2160', color: 'bg-blue-600', years: 4 }
-              ].map((entry, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center justify-between p-4 rounded-lg bg-white/50 hover:bg-white/80 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`w-4 h-4 rounded-full ${entry.color}`} />
-                    <div>
-                      <h3 className="font-montserrat font-semibold text-foreground">
-                        {entry.name}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">{entry.period}</p>
-                    </div>
-                  </div>
-                  <div className="text-muted-foreground font-montserrat font-bold text-sm">
-                    {entry.years} лет
-                  </div>
-                </div>
-              ))}
+            <div className="flex items-center justify-center p-8 text-center">
+              <p className="text-muted-foreground text-lg">
+                В настоящий момент (2160) государства-помощники отсутствуют
+              </p>
             </div>
           </Card>
         </div>
@@ -231,10 +192,10 @@ export default function EuropeanPact() {
               Европейский Союзный Пакт был создан в 2155 году по инициативе Российского Союза как механизм стабилизации и сотрудничества в европейском регионе.
             </p>
             <p className="text-lg">
-              Пакт объединял как полноправных членов, так и государства-помощники, которые участвовали в совместных экономических и оборонительных проектах. Альянс просуществовал 33 года и был распущен в 2188 году после достижения своих основных целей.
+              На данный момент (2160) в Пакт входят три полноправных члена: Российский Союз (основатель), Румынское Королевство и недавно присоединившееся Болгарское Царство.
             </p>
             <p className="text-lg">
-              За время существования Пакта его члены реализовали множество инфраструктурных проектов, торговых соглашений и программ культурного обмена, способствовавших укреплению связей между странами Восточной Европы и Балкан.
+              Основные направления сотрудничества включают совместные инфраструктурные проекты, торговые соглашения и программы культурного обмена, способствующие укреплению связей между странами Восточной Европы и Балкан.
             </p>
           </div>
         </Card>
