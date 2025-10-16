@@ -164,7 +164,8 @@ export default function Index() {
                     { name: 'Афганистан', year: 2145, color: 'bg-country-afghanistan' },
                     { name: 'Сирия', year: 2146, color: 'bg-country-syria' },
                     { name: 'Куба', year: 2146, color: 'bg-country-cuba' },
-                    { name: 'Венесуэла', year: 2147, color: 'bg-country-venezuela' }
+                    { name: 'Венесуэла', year: 2147, color: 'bg-country-venezuela' },
+                    { name: 'Нигер', year: 2160, color: 'bg-orange-600' }
                   ].map((entry, index) => (
                     <Card 
                       key={index}
@@ -185,7 +186,6 @@ export default function Index() {
                 
                 <TabsContent value="former" className="space-y-3">
                   {[
-                    { name: 'Нигер', period: '2160-2164', color: 'bg-orange-600' },
                     { name: 'Авторитарная Эстония', period: '2154-2156', color: 'bg-blue-700' }
                   ].map((entry, index) => (
                     <Card 
@@ -348,10 +348,10 @@ export default function Index() {
           </div>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p className="text-lg">
-              Альянс Российский Союз — единое государственное образование, объединяющее двенадцать территорий в могущественную федерацию. Мы — не просто альянс, мы — одна страна с общей судьбой и едиными целями.
+              Альянс Российский Союз — единое государственное образование, объединяющее тринадцать территорий в могущественную федерацию. Мы — не просто альянс, мы — одна страна с общей судьбой и едиными целями.
             </p>
             <p className="text-lg">
-              С населением более <span className="font-bold text-foreground">340 миллионов человек</span> и совокупным ВВП свыше <span className="font-bold text-foreground">$8.7 триллиона</span>, Российский Союз является одной из ведущих мировых держав. Наша сила — в единстве регионов, охватывающих территории от Восточной Европы до Центральной Азии и Латинской Америки.
+              С населением более <span className="font-bold text-foreground">340 миллионов человек</span> и совокупным ВВП свыше <span className="font-bold text-foreground">$8.7 триллиона</span>, Российский Союз является одной из ведущих мировых держав. Наша сила — в единстве регионов, охватывающих территории от Восточной Европы до Центральной Азии, Африки и Латинской Америки.
             </p>
             <p className="text-lg">
               Союз построен на принципах коллективной безопасности: угроза одной территории — это угроза всему Союзу. Мы готовы противостоять любым внешним вызовам, защищая суверенитет и благополучие каждого гражданина. Вместе мы строим безопасный и процветающий мир.
@@ -361,6 +361,19 @@ export default function Index() {
             </p>
           </div>
         </Card>
+
+        <div className="mt-8 text-center animate-fade-in">
+          <Link to="/european-pact">
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="bg-white/90 hover:bg-white border-primary/20 font-montserrat font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <Icon name="Shield" size={24} className="mr-2" />
+              Европейский Союзный Пакт
+            </Button>
+          </Link>
+        </div>
       </div>
 
       <footer className="py-8 text-center text-muted-foreground border-t border-primary/10 mt-16">
