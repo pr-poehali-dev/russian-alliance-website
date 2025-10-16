@@ -239,6 +239,7 @@ export default function Index() {
                   { name: 'Казахстан', force: '650 тыс', color: 'bg-country-kazakhstan', percent: 48 },
                   { name: 'Венесуэла', force: '~400 тыс', color: 'bg-country-venezuela', percent: 30 },
                   { name: 'Узбекистан', force: '325 тыс', color: 'bg-country-uzbekistan', percent: 24 },
+                  { name: 'Нигер', force: '~212 тыс', color: 'bg-orange-600', percent: 16 },
                   { name: 'Куба', force: '~210 тыс', color: 'bg-country-cuba', percent: 16 },
                   { name: 'Беларусь', force: '201 тыс', color: 'bg-country-belarus', percent: 15 },
                   { name: 'Таджикистан', force: '140 тыс', color: 'bg-country-tajikistan', percent: 10 },
@@ -275,7 +276,7 @@ export default function Index() {
                 <div className="flex items-center gap-2">
                   <Icon name="Info" size={20} className="text-primary" />
                   <p className="text-sm text-muted-foreground">
-                    Общая численность активного военного состава альянса составляет более 4.3 млн человек
+                    Общая численность активного военного состава альянса составляет более 4.5 млн человек
                   </p>
                 </div>
               </Card>

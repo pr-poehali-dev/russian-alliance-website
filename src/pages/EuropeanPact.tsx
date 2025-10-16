@@ -108,7 +108,7 @@ export default function EuropeanPact() {
           <div className="flex items-center justify-center gap-4 text-muted-foreground text-lg md:text-xl font-medium mb-4">
             <div className="flex items-center gap-2">
               <Icon name="Calendar" size={20} className="text-primary" />
-              <span>2155 - 2188</span>
+              <span>Основан в 2155 году</span>
             </div>
           </div>
           <p className="text-primary font-montserrat font-semibold text-xl">
